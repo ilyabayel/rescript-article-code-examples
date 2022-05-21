@@ -14,5 +14,13 @@
     ],
     "suffix": ".bs.js",
     "reason": { "react-jsx": 3 },
-    "bs-dependencies": ["@rescript/react"]
+    "bs-dependencies": ["@rescript/react"],
+    "gentypeconfig": {
+      "language": "typescript",
+      "module": "es6",
+      "debug": {
+        "all": false,
+        "basic": false
+      }
+    }
   }

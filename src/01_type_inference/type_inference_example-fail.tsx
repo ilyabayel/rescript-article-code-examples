@@ -12,14 +12,17 @@ const room: Room = {
   connected: false
 }
 
-const context: React.Context<[Room, (room: Room) => void]> = React.createContext([room, (_) => { }])
 
-const useState = () => React.useContext(context)
+const context = React.createContext([room, (_) => { }])
 
-const useConnect = () => {
-  const [_room, setRoomState] = useState()
+function useRoom () {
+  return React.useContext(context)
+}
 
-  return (room: Room) => setRoomState(room)
+function useConnect() {
+  const [_room, setRoom] = useRoom()
+
+  return (room) => setRoom(room)
 }
 
 export function Component() {
@@ -28,3 +31,5 @@ export function Component() {
 
   return <div>Hello, world</div>
 }
+
+

@@ -1,8 +1,8 @@
-type roomType = {
+type roomRecord = {
     id: string,
     body: string,
     connected: bool,
-  }
+}
 
 let emptyRoom = {
   id: "",
@@ -12,12 +12,12 @@ let emptyRoom = {
 
 let context = React.createContext((emptyRoom, _ => ()))
 
-let useState = () => {
+let useRoom = () => {
   React.useContext(context)
 }
 
 let useConnect = () => {
-  let (_room, setRoomState) = useState()
+  let (_room, setRoomState) = useRoom()
 
   room => setRoomState(room)
 }
